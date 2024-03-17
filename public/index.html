@@ -10,17 +10,17 @@
     <h4>Registration form</h4>
     <form id="registrationForm" action="/action.php" method="post">
         <h5>Enter Your Valid Credentials</h5>
-        <input type="text" name="username" placeholder="Username"> 
+        <input type="text" name="username" placeholder="Username" required> 
         <br> <br>
-        <input type="password" name="password" placeholder="Password">
+        <input type="password" name="password" placeholder="Password" required>
         <br> <br>
 
         <h5>Select Your Class</h5>
         <label for="classXI">
-            <input type="radio" value="Class XI" name="class" id="classXI">Class XI
+            <input type="radio" value="Class XI" name="class" id="classXI" required>Class XI
         </label>
         <label for="classXII">  
-            <input type="radio" value="Class XII" name="class" id="classXII">Class XII
+            <input type="radio" value="Class XII" name="class" id="classXII" required>Class XII
         </label>
         <br> <br>
 
@@ -43,7 +43,8 @@
         <br> <br>
 
         <h5>Select your city</h5>
-        <select name="city">
+        <select name="city" required>
+            <option value="">Select City</option> 
             <option value="Delhi">Delhi</option> 
             <option value="Bangalore">Bangalore</option> 
             <option value="Mumbai">Mumbai</option> 

@@ -1,13 +1,16 @@
+/* Body styles */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     padding: 20px;
   }
   
+  /* Heading styles */
   h4 {
     color: #333;
   }
   
+  /* Form styles */
   form {
     background-color: #fff;
     padding: 20px;
@@ -15,11 +18,13 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   
+  /* Subheading styles */
   h5 {
     margin-top: 20px;
     margin-bottom: 10px;
   }
   
+  /* Input styles */
   input[type="text"],
   input[type="password"],
   textarea,
@@ -32,11 +37,13 @@ body {
     box-sizing: border-box;
   }
   
+  /* Checkbox and radio button styles */
   input[type="checkbox"],
   input[type="radio"] {
     margin-right: 5px;
   }
   
+  /* Submit button styles */
   input[type="submit"] {
     background-color: #007bff;
     color: #fff;
@@ -50,6 +57,7 @@ body {
     background-color: #0056b3;
   }
   
+  /* Hide elements with hidden class */
   .hidden {
     display: none;
   }
