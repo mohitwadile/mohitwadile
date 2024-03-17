@@ -3,6 +3,15 @@ document.getElementById('registrationForm').addEventListener('submit', function(
 
     // Check if all required fields are filled
     if (this.checkValidity()) {
+        // Get form values
+        const username = document.querySelector('input[name="username"]').value;
+        const password = document.querySelector('input[name="password"]').value;
+        const selectedClass = document.querySelector('input[name="class"]:checked').value;
+        const selectedSubjects = document.querySelectorAll('input[name="subject"]:checked');
+        const subjects = Array.from(selectedSubjects).map(subject => subject.value);
+        const city = document.querySelector('select[name="city"]').value;
+        const feedback = document.querySelector('textarea[name="feedback"]').value;
+
         // Hide the form
         this.style.display = 'none';
 
