@@ -11,7 +11,7 @@ body
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url(C:\Users\MohitWadile\OneDrive\Documents\mohitwadile\public\img);
+    background: url(img/bg.jpg);
     background-size: cover;
     background-repeat: no-repeat;
 }
