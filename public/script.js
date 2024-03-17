@@ -1,17 +1,29 @@
-// Initialize Firebase
-const firebaseConfig = {
-    apiKey: "AIzaSyCMtUIR4PHnTC6xCkcuJm4-DNNDK9bDAwU",
-    authDomain: "my-first-project-29e75.firebaseapp.com",
-    projectId: "my-first-project-29e75",
-    storageBucket: "my-first-project-29e75.appspot.com",
-    messagingSenderId: "433026282189",
-    appId: "1:433026282189:web:c3fdb8a7fd86c8ba25ef84",
-    measurementId: "G-DLCQ89PVHB"
-  };
+<script type="module">
+        // Import the functions you need from the SDKs you need
 
-  
-  firebase.initializeApp(firebaseConfig);
-  const db = firebase.firestore();
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyCMtUIR4PHnTC6xCkcuJm4-DNNDK9bDAwU",
+          authDomain: "my-first-project-29e75.firebaseapp.com",
+          projectId: "my-first-project-29e75",
+          storageBucket: "my-first-project-29e75.appspot.com",
+          messagingSenderId: "433026282189",
+          appId: "1:433026282189:web:c3fdb8a7fd86c8ba25ef84",
+          measurementId: "G-DLCQ89PVHB"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+      </script>
+
+
   
   document.getElementById('registrationForm').addEventListener('submit', function(event) {
       event.preventDefault();
