@@ -4,89 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h4> Registration form </h4>
-    <form action="/action.php">
-        <h5> Enter Your Valid Credentials </h5>
-        <input type="text" placeholder="Username"> 
+    <h4>Registration form</h4>
+    <form id="registrationForm" action="/action.php" method="post">
+        <h5>Enter Your Valid Credentials</h5>
+        <input type="text" name="username" placeholder="Username"> 
         <br> <br>
-        <input type="password" placeholder="Password" >
+        <input type="password" name="password" placeholder="Password">
         <br> <br>
 
-        <h5> Select Your Class </h5>
-    <label for="101">
-        <input type="radio" value="Class XI"  name="Class" id="101">Class XI
-    </label>
-    <label for="102">  
-        <input type="radio" value="Class XII" name="Class" id="102">Class XII
-</label>
-<br> <br>
+        <h5>Select Your Class</h5>
+        <label for="classXI">
+            <input type="radio" value="Class XI" name="class" id="classXI">Class XI
+        </label>
+        <label for="classXII">  
+            <input type="radio" value="Class XII" name="class" id="classXII">Class XII
+        </label>
+        <br> <br>
 
-        <h5> Select Your Favourite Subjects </h5>
-<label for="Math">
-    <input type="checkbox" value="Math" name="Subject" id="101">Math
-</label>
-<label for="Physics">
-    <input type="checkbox" value="Physics" name="Subject" id="102">Physics
-</label>
-<label for="English">
-    <input type="checkbox" value="English" name="Subject" id="103">English
-</label>
-<label for="Chemistry">
-    <input type="checkbox" value="Chemistry" name="Subject" id="104">Chemistry
-</label>
-<label for="Biology">
-    <input type="checkbox" value="Biology" name="Subject" id="105">Biology
-</label>
-<br> <br>
-    <h5> Select your city </h5>
-<select name="City">
-        <option value="Delhi">Delhi</option> 
-        <option value="Bangalore">Bangalore</option> 
-        <option value="Mumbai">Mumbai</option> 
-        <option value="Nagpur">Nagpur</option> 
-        <option value="Pune">Pune</option> 
-</select>
-<br> <br>
+        <h5>Select Your Favourite Subjects</h5>
+        <label for="math">
+            <input type="checkbox" value="Math" name="subject" id="math">Math
+        </label>
+        <label for="physics">
+            <input type="checkbox" value="Physics" name="subject" id="physics">Physics
+        </label>
+        <label for="english">
+            <input type="checkbox" value="English" name="subject" id="english">English
+        </label>
+        <label for="chemistry">
+            <input type="checkbox" value="Chemistry" name="subject" id="chemistry">Chemistry
+        </label>
+        <label for="biology">
+            <input type="checkbox" value="Biology" name="subject" id="biology">Biology
+        </label>
+        <br> <br>
 
-    <textarea name="Feedback" id="101" placeholder="Please give your valauable feedback here" rows="5" > Feedback</textarea>
-    <br> <br>
+        <h5>Select your city</h5>
+        <select name="city">
+            <option value="Delhi">Delhi</option> 
+            <option value="Bangalore">Bangalore</option> 
+            <option value="Mumbai">Mumbai</option> 
+            <option value="Nagpur">Nagpur</option> 
+            <option value="Pune">Pune</option> 
+        </select>
+        <br> <br>
 
-    <input type="Submit" value="Submit">
-    <br> <br>
+        <textarea name="feedback" id="feedback" placeholder="Please give your valuable feedback here" rows="5">Feedback</textarea>
+        <br> <br>
+
+        <input type="submit" value="Submit">
+        <br> <br>
+
+        <div id="thankYouMessage" class="hidden">Thank you! Your response is submitted.</div>
+    </form>
 
     <script src="script.js"></script>
-    <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-analytics.js";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
-      
-        // Your web app's Firebase configuration
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        const firebaseConfig = {
-          apiKey: "AIzaSyCMtUIR4PHnTC6xCkcuJm4-DNNDK9bDAwU",
-          authDomain: "my-first-project-29e75.firebaseapp.com",
-          projectId: "my-first-project-29e75",
-          storageBucket: "my-first-project-29e75.appspot.com",
-          messagingSenderId: "433026282189",
-          appId: "1:433026282189:web:c3fdb8a7fd86c8ba25ef84",
-          measurementId: "G-DLCQ89PVHB"
-        };
-      
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-      </script>
-
-
-
-
-
-    
 </body>
 </html>

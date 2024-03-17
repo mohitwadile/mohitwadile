@@ -1,28 +1,20 @@
 document.getElementById('registrationForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent the default form submission
-    
+    event.preventDefault();
+
     // Get form values
-    var username = document.getElementsByName('username')[0].value;
-    var password = document.getElementsByName('password')[0].value;
-    var selectedClass = document.querySelector('input[name="class"]:checked');
-    var selectedSubjects = document.querySelectorAll('input[name="subject"]:checked');
-    var city = document.querySelector('select[name="city"]').value;
-    var feedback = document.getElementById('feedback').value;
-  
-    // Create an array to store selected subjects
-    var selectedSubjectsArray = [];
-    selectedSubjects.forEach(function(subject) {
-      selectedSubjectsArray.push(subject.value);
-    });
-  
-    // Log the form values
-    console.log('Username:', username);
-    console.log('Password:', password);
-    console.log('Class:', selectedClass ? selectedClass.value : 'Not selected');
-    console.log('Subjects:', selectedSubjectsArray.join(', ') || 'None selected');
-    console.log('City:', city);
-    console.log('Feedback:', feedback);
-  
-    // For this example, just log the values to the console
-  });
-  
+    const username = document.querySelector('input[name="username"]').value;
+    const password = document.querySelector('input[name="password"]').value;
+    const selectedClass = document.querySelector('input[name="class"]:checked').value;
+    const selectedSubjects = document.querySelectorAll('input[name="subject"]:checked');
+    const subjects = Array.from(selectedSubjects).map(subject => subject.value);
+    const city = document.querySelector('select[name="city"]').value;
+    const feedback = document.querySelector('textarea[name="feedback"]').value;
+
+    // Add data to Firebase Firestore
+    // Here, you can replace this with your Firebase Firestore code to store the form data
+    // For this example, let's just display the "Thank you!" message
+    document.getElementById('thankYouMessage').classList.remove('hidden');
+    setTimeout(function() {
+        document.getElementById('thankYouMessage').classList.add('hidden');
+    }, 3000); // Hide the message after 3 seconds (adjust as needed)
+});
