@@ -22,17 +22,18 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   
     form.addEventListener("submit", function(event) {
-      event.preventDefault();
+      event.preventDefault(); // Prevent default form submission
+  
       const username = usernameInput.value.trim();
       const email = emailInput.value.trim();
       const phone = phoneInput.value.trim();
   
       // Perform form validation
-      if (validateForm()) {
+      if (username && email && phone) {
         // Store data in Firebase
         storeUserData(username, email, phone);
       } else {
-        // If form is invalid, display error message or handle it as needed
+        // If any field is empty, display error message or handle it as needed
         alert("Please fill in all required fields.");
       }
     });
