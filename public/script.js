@@ -30,34 +30,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Perform form validation
         if (username && email && phone) {
-            // Store data in Firebase
-            storeUserData(username, email, phone);
+            // Handle form submission here (e.g., send data to a server or perform client-side processing)
+            alert("Form submitted successfully!");
+            // Reset form for fresh data entry
+            form.reset();
+            // Disable submit button after successful submission
+            submitButton.disabled = true;
         } else {
             // If any field is empty, display error message
             alert("Please fill in all required fields.");
         }
     });
-
-    function storeUserData(username, email, phone) {
-        // Push data to Firebase database
-        set(ref(db, 'user/' + username), {
-            username,
-            email,
-            PhoneNumber: phone
-        })
-        .then(() => {
-            // Upon successful submission, display success message
-            alert("Login successful! Your data has been submitted.");
-            // Reset form fields
-            usernameInput.value = "";
-            emailInput.value = "";
-            phoneInput.value = "";
-            // Disable submit button after successful submission
-            submitButton.disabled = true;
-        })
-        .catch((error) => {
-            console.error("Error storing data: ", error);
-            alert("An error occurred. Please try again later.");
-        });
-    }
 });
