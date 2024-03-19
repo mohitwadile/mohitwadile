@@ -24,21 +24,24 @@ document.addEventListener("DOMContentLoaded", function() {
     form.addEventListener("submit", function(event) {
         event.preventDefault(); // Prevent default form submission
 
+        // Check if submit button is disabled (i.e., form is not valid)
+        if (submitButton.disabled) {
+            // If submit button is disabled, display error message
+            alert("Please fill in all required fields.");
+            return; // Exit form submission process
+        }
+
         const username = usernameInput.value.trim();
         const email = emailInput.value.trim();
         const phone = phoneInput.value.trim();
 
-        // Perform form validation
-        if (username && email && phone) {
-            // Handle form submission here (e.g., send data to a server or perform client-side processing)
-            alert("Form submitted successfully!");
-            // Reset form for fresh data entry
-            form.reset();
-            // Disable submit button after successful submission
-            submitButton.disabled = true;
-        } else {
-            // If any field is empty, display error message
-            alert("Please fill in all required fields.");
-        }
+        // Display login successful message
+        alert("Login successful!");
+
+        // Reset form for fresh data entry
+        form.reset();
+
+        // Disable submit button after successful submission
+        submitButton.disabled = true;
     });
 });
