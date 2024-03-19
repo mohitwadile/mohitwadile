@@ -7,7 +7,7 @@
         <div class="box">
             <div class="form">
                 <h2>Login Form</h2>
-                <form>
+                <form id="loginForm">
                     <div class="inputbox">
                         <input type="text" value="" id="username" required>
                         <span>username</span>
@@ -28,39 +28,91 @@
         <script src="script.js"></script>
 
         <script type="module">
-               // Import the functions you need from the SDKs you need
+            // Import the functions you need from the SDKs you need
             import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
             import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
-  
-  // Your web app's Firebase configuration
+
+            // Your web app's Firebase configuration
             const firebaseConfig = {
-              apiKey: "AIzaSyAkPgAR0Hs6v5oNlmxYxI2OGh-S8YA2OWU",
-              authDomain: "creativetutorial-43ba7.firebaseapp.com",
-              projectId: "creativetutorial-43ba7",
-              storageBucket: "creativetutorial-43ba7.appspot.com",
-              messagingSenderId: "52869654198",
-              appId: "1:52869654198:web:0a19740d1f26ade1066817"
+                apiKey: "AIzaSyAkPgAR0Hs6v5oNlmxYxI2OGh-S8YA2OWU",
+                authDomain: "creativetutorial-43ba7.firebaseapp.com",
+                projectId: "creativetutorial-43ba7",
+                storageBucket: "creativetutorial-43ba7.appspot.com",
+                messagingSenderId: "52869654198",
+                appId: "1:52869654198:web:0a19740d1f26ade1066817"
             };
 
-  // Initialize Firebase
+            // Initialize Firebase
             const app = initializeApp(firebaseConfig);
 
-   //get ref to database services
-             const db = getDatabase(app);
-
-             document.getElementById("submit").addEventListener('click', function(e){
-              e.preventDefault();
-              set(ref(db, 'user/' + document.getElementById("username").value),
-              {
-   
-                username: document.getElementById("username").value,
-                email: document.getElementById("email").value,
-                PhoneNumber: document.getElementById("phone").value
-
-              });
-                alert("Login Sucessfull  !");
-             })
+            // Get a reference to the database service
+            const db = getDatabase(app);
         </script>
-        
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const form = document.getElementById("loginForm");
+                const submitButton = document.getElementById("submit");
+                const usernameInput = document.getElementById("username");
+                const emailInput = document.getElementById("email");
+                const phoneInput = document.getElementById("phone");
+
+                // Disable submit button initially
+                submitButton.disabled = true;
+
+                // Add event listeners to input fields
+                usernameInput.addEventListener("input", validateForm);
+                emailInput.addEventListener("input", validateForm);
+                phoneInput.addEventListener("input", validateForm);
+
+                function validateForm() {
+                    const isUsernameValid = usernameInput.value.trim() !== "";
+                    const isEmailValid = emailInput.value.trim() !== "";
+                    const isPhoneValid = phoneInput.value.trim() !== "";
+
+                    submitButton.disabled = !(isUsernameValid && isEmailValid && isPhoneValid);
+                }
+
+                form.addEventListener("submit", function(event) {
+                    event.preventDefault(); // Prevent default form submission
+
+                    const username = usernameInput.value.trim();
+                    const email = emailInput.value.trim();
+                    const phone = phoneInput.value.trim();
+
+                    // Perform form validation
+                    if (username && email && phone) {
+                        // Store data in Firebase
+                        storeUserData(username, email, phone);
+                    } else {
+                        // If any field is empty, display error message
+                        alert("Please fill in all required fields.");
+                    }
+                });
+
+                function storeUserData(username, email, phone) {
+                    // Push data to Firebase database
+                    set(ref(db, 'user/' + username), {
+                        username,
+                        email,
+                        PhoneNumber: phone
+                    })
+                    .then(() => {
+                        // Upon successful submission, display success message
+                        alert("Login successful! Your data has been submitted.");
+                        // Reset form fields
+                        usernameInput.value = "";
+                        emailInput.value = "";
+                        phoneInput.value = "";
+                        // Disable submit button after successful submission
+                        submitButton.disabled = true;
+                    })
+                    .catch((error) => {
+                        console.error("Error storing data: ", error);
+                        alert("An error occurred. Please try again later.");
+                    });
+                }
+            });
+        </script>
     </body>
 </html>
