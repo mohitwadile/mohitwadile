@@ -19,20 +19,17 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Check username condition
         if (!isUsernameValid()) {
-            alert("Username should only contain alphabets, numbers, and special characters.");
-            return;
+            return; // No need to display alert message if username condition is not met
         }
 
         // Check email condition
         if (!isEmailValid()) {
-            alert("Please enter a valid email address.");
-            return;
+            return; // No need to display alert message if email condition is not met
         }
 
         // Check phone number condition
         if (!isPhoneValid()) {
-            alert("Please enter a valid phone number starting with 6, 7, 8, 9, or 0 and having exactly 10 digits.");
-            return;
+            return; // No need to display alert message if phone number condition is not met
         }
 
         // If all fields are filled and passed individual validations, proceed with form submission
@@ -54,20 +51,32 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function isUsernameValid() {
-        // Validate username (allow alphabets, numbers, and special characters)
-        const usernameRegex = /^[a-zA-Z0-9 !@#$%^&()_+\-=\[\]{};':"\\|,.<>\/?]$/;
-        return usernameRegex.test(form.username.value.trim());
+        // Validate username (combination of alphabets, numbers, and dot character)
+        const usernameRegex = /^[a-zA-Z0-9.]+$/;
+        if (!usernameRegex.test(form.username.value.trim())) {
+            alert("Username should only contain alphabets, numbers, and dot character.");
+            return false;
+        }
+        return true;
     }
 
     function isEmailValid() {
         // Validate email address
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(form.email.value.trim());
+        if (!emailRegex.test(form.email.value.trim())) {
+            alert("Please enter a valid email address.");
+            return false;
+        }
+        return true;
     }
 
     function isPhoneValid() {
         // Validate phone number (only allow numbers starting with 6, 7, 8, 9, or 0 and should have exactly 10 digits)
         const phoneRegex = /^[67890]\d{9}$/;
-        return phoneRegex.test(form.phone.value.trim());
+        if (!phoneRegex.test(form.phone.value.trim())) {
+            alert("Please enter a valid phone number starting with 6, 7, 8, 9, or 0 and having exactly 10 digits.");
+            return false;
+        }
+        return true;
     }
 });
