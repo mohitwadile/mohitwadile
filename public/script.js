@@ -13,35 +13,29 @@ document.addEventListener("DOMContentLoaded", function() {
     emailInput.addEventListener("input", validateForm);
     phoneInput.addEventListener("input", validateForm);
 
-    function validateForm() {
-        const isUsernameValid = usernameInput.value.trim() !== "";
-        const isEmailValid = emailInput.value.trim() !== "";
-        const isPhoneValid = phoneInput.value.trim() !== "";
+    // Add event listener to submit button
+    submitButton.addEventListener("click", function(event) {
+        // Prevent default form submission
+        event.preventDefault();
 
-        submitButton.disabled = !(isUsernameValid && isEmailValid && isPhoneValid);
-    }
+        // Validate form fields
+        if (form.checkValidity()) {
+            // If form is valid, display login successful message
+            alert("Login successful!");
 
-    form.addEventListener("submit", function(event) {
-        event.preventDefault(); // Prevent default form submission
+            // Reset form for fresh data entry
+            form.reset();
 
-        // Check if submit button is disabled (i.e., form is not valid)
-        if (submitButton.disabled) {
-            // If submit button is disabled, display error message
-            alert("Please fill in all required fields.");
-            return; // Exit form submission process
+            // Disable submit button after successful submission
+            submitButton.disabled = true;
+        } else {
+            // If form is invalid, show alert to fill out required details
+            alert("Please fill out all required details.");
         }
-
-        const username = usernameInput.value.trim();
-        const email = emailInput.value.trim();
-        const phone = phoneInput.value.trim();
-
-        // Display login successful message
-        alert("Login successful!");
-
-        // Reset form for fresh data entry
-        form.reset();
-
-        // Disable submit button after successful submission
-        submitButton.disabled = true;
     });
+
+    function validateForm() {
+        // Check if all required fields are filled
+        submitButton.disabled = !form.checkValidity();
+    }
 });
