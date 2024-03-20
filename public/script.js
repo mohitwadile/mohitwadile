@@ -8,11 +8,6 @@ document.addEventListener("DOMContentLoaded", function() {
     // Disable submit button initially
     submitButton.disabled = true;
 
-    // Add event listeners to input fields
-    usernameInput.addEventListener("input", validateForm);
-    emailInput.addEventListener("input", validateForm);
-    phoneInput.addEventListener("input", validateForm);
-
     // Add event listener to submit button
     submitButton.addEventListener("click", function(event) {
         // Prevent default form submission
@@ -41,13 +36,8 @@ document.addEventListener("DOMContentLoaded", function() {
         submitButton.disabled = true;
     });
 
-    function validateForm() {
-        // Enable or disable submit button based on form validity
-        submitButton.disabled = !form.checkValidity();
-    }
-
     function isFormValid() {
-        // Check if all required fields are filled
+        // Check if any required field is empty
         return usernameInput.value.trim() !== "" && 
                emailInput.value.trim() !== "" && 
                phoneInput.value.trim() !== "";
