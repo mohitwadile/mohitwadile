@@ -26,9 +26,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function isFormValid() {
         // Check if any required field is empty
-        if (form.username.value.trim() === "" || 
-            form.email.value.trim() === "" || 
-            form.phone.value.trim() === "") {
+        if (form.username.value.trim() === "") {
+            alert("Please enter a username.");
+            return false;
+        }
+
+        if (form.email.value.trim() === "") {
+            alert("Please enter an email address.");
+            return false;
+        }
+
+        if (form.phone.value.trim() === "") {
+            alert("Please enter a phone number.");
             return false;
         }
 
@@ -49,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // Validate phone number (only allow numbers starting with 6, 7, 8, 9, or 0 and should have exactly 10 digits)
         const phoneRegex = /^[67890]\d{9}$/;
         if (!phoneRegex.test(form.phone.value.trim())) {
-            alert("Please enter a valid phone number starting with 6, 7, 8, 9, or 0 and having exactly 10 digits.");
+            alert("Please enter a valid phone number.");
             return false;
         }
 
