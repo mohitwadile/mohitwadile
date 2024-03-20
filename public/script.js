@@ -7,12 +7,35 @@ document.addEventListener("DOMContentLoaded", function() {
         // Prevent default form submission
         event.preventDefault();
 
-        // Check if any required field is empty and display corresponding error message
+        // Check if any required field is empty
         if (!isFormFilled()) {
+            // If any required field is empty, display the "Please fill out the required details" message
+            alert("Please fill out all required details to proceed.");
             return; // Exit form submission process
         }
 
-        // If all required fields are filled and valid, proceed with form submission
+        // If all required fields are filled and valid, proceed with individual field validation
+        // Check individual field conditions and display messages accordingly
+
+        // Check username condition
+        if (!isUsernameValid()) {
+            alert("Username should only contain alphabets, numbers, and special characters.");
+            return;
+        }
+
+        // Check email condition
+        if (!isEmailValid()) {
+            alert("Please enter a valid email address.");
+            return;
+        }
+
+        // Check phone number condition
+        if (!isPhoneValid()) {
+            alert("Please enter a valid phone number starting with 6, 7, 8, 9, or 0 and having exactly 10 digits.");
+            return;
+        }
+
+        // If all fields are filled and passed individual validations, proceed with form submission
         // Here you can handle form submission or any other action you require
 
         // Display login successful message (for demonstration)
@@ -23,24 +46,27 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     function isFormFilled() {
-        let allFieldsFilled = true;
+        // Check if any required field is empty
+        return form.username.value.trim() !== "" || 
+               form.email.value.trim() !== "" || 
+               form.phone.value.trim() !== "";
+    }
 
-        // Check if any required field is empty and display corresponding error message
-        if (form.username.value.trim() === "") {
-            alert("Please enter a username.");
-            allFieldsFilled = false;
-        }
+    function isUsernameValid() {
+        // Validate username (only allow alphabets, numbers, and special characters)
+        const usernameRegex = /^[a-zA-Z0-9 !@#$%^&()_+\-=\[\]{};':"\\|,.<>\/?]$/;
+        return usernameRegex.test(form.username.value.trim());
+    }
 
-        if (form.email.value.trim() === "") {
-            alert("Please enter an email address.");
-            allFieldsFilled = false;
-        }
+    function isEmailValid() {
+        // Validate email address
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(form.email.value.trim());
+    }
 
-        if (form.phone.value.trim() === "") {
-            alert("Please enter a phone number.");
-            allFieldsFilled = false;
-        }
-
-        return allFieldsFilled; // Return false if any required field is empty
+    function isPhoneValid() {
+        // Validate phone number (only allow numbers starting with 6, 7, 8, 9, or 0 and should have exactly 10 digits)
+        const phoneRegex = /^[67890]\d{9}$/;
+        return phoneRegex.test(form.phone.value.trim());
     }
 });
