@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // Validate username (combination of alphabets, numbers, and dot character)
         const usernameRegex = /^[a-zA-Z0-9.]+$/;
         if (!usernameRegex.test(form.username.value.trim())) {
-            alert("Username should only contain alphabets, numbers, and special characters.");
+            alert("Username should only contain alphabets, numbers, special characters.");
             return false;
         }
         return true;
