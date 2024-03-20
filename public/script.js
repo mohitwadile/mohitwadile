@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Check if any required field is empty
         if (!isFormFilled()) {
-            // If any required field is empty, display the "Please fill out the required details" message
+            // If any required field is empty, display the "Please fill out required details" message
             alert("Please fill out all required details to proceed.");
             return; // Exit form submission process
         }
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function isEmailValid() {
-        // Validate email address
+        // Validate email address (standard email address format)
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(form.email.value.trim())) {
             alert("Please enter a valid email address.");
@@ -71,10 +71,10 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function isPhoneValid() {
-        // Validate phone number (only allow numbers starting with 6, 7, 8, 9, or 0 and should have exactly 10 digits)
-        const phoneRegex = /^[67890]\d{9}$/;
+        // Validate phone number (allow optional "0" before digits 6-9 and should have exactly 10 digits)
+        const phoneRegex = /^(0?[6789]\d{9})$/;
         if (!phoneRegex.test(form.phone.value.trim())) {
-            alert("Please enter a valid phone number starting with 6, 7, 8, 9, or 0 and having exactly 10 digits.");
+            alert("Please enter a valid phone number starting with 6, 7, 8, or 9 and having exactly 10 digits.");
             return false;
         }
         return true;
