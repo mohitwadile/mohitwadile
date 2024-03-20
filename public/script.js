@@ -1,24 +1,16 @@
 document.addEventListener("DOMContentLoaded", function() {
     const form = document.getElementById("loginForm");
     const submitButton = document.getElementById("submit");
-    const usernameInput = document.getElementById("username");
-    const emailInput = document.getElementById("email");
-    const phoneInput = document.getElementById("phone");
 
     // Disable submit button initially
     submitButton.disabled = true;
-
-    // Add event listeners to input fields
-    usernameInput.addEventListener("input", validateForm);
-    emailInput.addEventListener("input", validateForm);
-    phoneInput.addEventListener("input", validateForm);
 
     // Add event listener to submit button
     submitButton.addEventListener("click", function(event) {
         // Prevent default form submission
         event.preventDefault();
 
-        // Validate form fields
+        // Check if the form is valid
         if (form.checkValidity()) {
             // If form is valid, display login successful message
             alert("Login successful!");
@@ -34,8 +26,9 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    function validateForm() {
-        // Check if all required fields are filled
+    // Add event listener to form for input validation
+    form.addEventListener("input", function() {
+        // Enable or disable submit button based on form validity
         submitButton.disabled = !form.checkValidity();
-    }
+    });
 });
