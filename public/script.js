@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // Validate username (combination of alphabets, numbers, and dot character)
         const usernameRegex = /^[a-zA-Z0-9.]+$/;
         if (!usernameRegex.test(form.username.value.trim())) {
-            alert("Username should only contain alphabets, numbers, and dot character.");
+            alert("Username should only contain alphabets, numbers, and special characters.");
             return false;
         }
         return true;
@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // Validate phone number (allow optional "0" before digits 6-9 and should have exactly 10 digits)
         const phoneRegex = /^(0?[6789]\d{9})$/;
         if (!phoneRegex.test(form.phone.value.trim())) {
-            alert("Please enter a valid phone number starting with 6, 7, 8, or 9 and having exactly 10 digits.");
+            alert("Please enter a valid phone number");
             return false;
         }
         return true;
