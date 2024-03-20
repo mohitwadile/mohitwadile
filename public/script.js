@@ -39,10 +39,11 @@ document.addEventListener("DOMContentLoaded", function() {
         // Here you can handle form submission or any other action you require
 
         // Display login successful message (for demonstration)
-        alert("Login successful!");
-
-        // Reset form for fresh data entry (for demonstration)
-        form.reset();
+        if (confirm("Do you want to submit the form?")) {
+            alert("Login successful!");
+            // Reset form for fresh data entry (for demonstration)
+            form.reset();
+        }
     });
 
     function isFormFilled() {
