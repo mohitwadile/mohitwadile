@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function isUsernameValid() {
-        // Validate username (only allow alphabets, numbers, and special characters)
+        // Validate username (allow alphabets, numbers, and special characters)
         const usernameRegex = /^[a-zA-Z0-9 !@#$%^&()_+\-=\[\]{};':"\\|,.<>\/?]$/;
         return usernameRegex.test(form.username.value.trim());
     }
