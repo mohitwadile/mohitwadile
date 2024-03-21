@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Check if any required field is empty
         if (!isFormFilled()) {
-            // If any required field is empty, display the "Please fill out all required details to proceed" message
+            // If any required field is empty, display the "Please fill out required details" message
             alert("Please fill out all required details to proceed.");
             return; // Exit form submission process
         }
@@ -17,17 +17,17 @@ document.addEventListener("DOMContentLoaded", function() {
         // If all required fields are filled and valid, proceed with individual field validation
         // Check individual field conditions and display messages accordingly
 
-        // Check if username condition is met
+        // Check username condition
         if (!isUsernameValid()) {
             return; // No need to display alert message if username condition is not met
         }
 
-        // Check if email condition is met
+        // Check email condition
         if (!isEmailValid()) {
             return; // No need to display alert message if email condition is not met
         }
 
-        // Check if phone number condition is met
+        // Check phone number condition
         if (!isPhoneValid()) {
             return; // No need to display alert message if phone number condition is not met
         }
