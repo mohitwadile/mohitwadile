@@ -28,13 +28,6 @@
         </div>
     </div>
 
-    <!-- Dynamically add the script tag with cache-busting -->
-    <script>
-        const timestamp = new Date().getTime();
-        const scriptUrl = script.js?v=$:{timestamp};
-        const scriptElement = document.createElement('script');
-        scriptElement.src = scriptUrl;
-        document.head.appendChild(scriptElement);
-    </script>
+    
 </body>
 </html>
