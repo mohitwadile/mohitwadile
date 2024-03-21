@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Check if any required field is empty
         if (!isFormFilled()) {
-            // If any required field is empty, display the "Please fill out required details" message
+            // If any required field is empty, display the "Please fill out all required details to proceed" message
             alert("Please fill out all required details to proceed.");
             return; // Exit form submission process
         }
@@ -19,17 +19,17 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Check username condition
         if (!isUsernameValid()) {
-            return; // No need to display alert message if username condition is not met
+            return; // No need to proceed further if username condition is not met
         }
 
         // Check email condition
         if (!isEmailValid()) {
-            return; // No need to display alert message if email condition is not met
+            return; // No need to proceed further if email condition is not met
         }
 
         // Check phone number condition
         if (!isPhoneValid()) {
-            return; // No need to display alert message if phone number condition is not met
+            return; // No need to proceed further if phone number condition is not met
         }
 
         // If all fields are filled and passed individual validations, proceed with form submission
@@ -51,13 +51,23 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function isUsernameValid() {
-        // Validate username (combination of alphabets, numbers, and dot character)
-        const usernameRegex = /^[a-zA-Z0-9.]+$/;
-        if (!usernameRegex.test(form.username.value.trim())) {
-            alert("Please enter a valid username.");
-            alert("Username should contain at least an alphabet and a number.")
+        // Validate username (combination of at least an alphabet and a number)
+        const username = form.username.value.trim();
+        const containsAlphabet = /[a-zA-Z]/.test(username);
+        const containsNumber = /\d/.test(username);
+        
+        if (!containsAlphabet || !containsNumber) {
+            alert("Username should contain at least an alphabet and a number.");
             return false;
         }
+        
+        // Validate username format (combination of alphabets, numbers, and special characters)
+        const usernameRegex = /^[a-zA-Z0-9!@#$%^&*()_+[\]{}|;':",.<>?`~-]+$/;
+        if (!usernameRegex.test(username)) {
+            alert("Please enter a valid username.");
+            return false;
+        }
+        
         return true;
     }
 
