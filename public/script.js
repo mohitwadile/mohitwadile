@@ -17,17 +17,17 @@ document.addEventListener("DOMContentLoaded", function() {
         // If all required fields are filled and valid, proceed with individual field validation
         // Check individual field conditions and display messages accordingly
 
-        // Check username condition
+        // Check if username condition is met
         if (!isUsernameValid()) {
             return; // No need to display alert message if username condition is not met
         }
 
-        // Check email condition
+        // Check if email condition is met
         if (!isEmailValid()) {
             return; // No need to display alert message if email condition is not met
         }
 
-        // Check phone number condition
+        // Check if phone number condition is met
         if (!isPhoneValid()) {
             return; // No need to display alert message if phone number condition is not met
         }
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // Validate username (combination of alphabets, numbers, and dot character)
         const usernameRegex = /^[a-zA-Z0-9.]+$/;
         if (!usernameRegex.test(form.username.value.trim())) {
-            alert("Username should only contain alphabets, numbers, special characters.");
+            alert("Username should only contain alphabets, numbers, and dot character.");
             return false;
         }
         return true;
@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // Validate phone number (allow optional "0" before digits 6-9 and should have exactly 10 digits)
         const phoneRegex = /^(0?[6789]\d{9})$/;
         if (!phoneRegex.test(form.phone.value.trim())) {
-            alert("Please enter a valid phone number");
+            alert("Please enter a valid phone number starting with 6, 7, 8, or 9 and having exactly 10 digits.");
             return false;
         }
         return true;
