@@ -94,34 +94,4 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
-  import { getdatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-database.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyCMtUIR4PHnTC6xCkcuJm4-DNNDK9bDAwU",
-    authDomain: "my-first-project-29e75.firebaseapp.com",
-    databaseURL: "https://my-first-project-29e75-default-rtdb.firebaseio.com",
-    projectId: "my-first-project-29e75",
-    storageBucket: "my-first-project-29e75.appspot.com",
-    messagingSenderId: "433026282189",
-    appId: "1:433026282189:web:c3fdb8a7fd86c8ba25ef84",
-    measurementId: "G-DLCQ89PVHB"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  
-
-// get ref to database services 
-const db = getdatabase(app);
-
-document.getElementById("submit").addEventListener('click', function(e)
-{set(ref(db, 'user/' + document.getElementById("username").value),
-    username,  document.getElementById("username").value);
-    email: document.getElementById("email").value;
-    PhoneNumber: document.getElementById("phone").value;})
+ 
