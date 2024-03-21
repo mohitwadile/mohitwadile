@@ -17,20 +17,6 @@ document.addEventListener("DOMContentLoaded", function() {
         // If all required fields are filled and valid, proceed with individual field validation
         // Check individual field conditions and display messages accordingly
 
-        // Check if username condition is met
-        if (!isUsernameValid()) {
-            return; // No need to display alert message if username condition is met
-        }
-
-        // Check if email condition is met
-        if (!isEmailValid()) {
-            return; // No need to display alert message if email condition is met
-        }
-
-        // Check if phone number condition is met
-        if (!isPhoneValid()) {
-            return; // No need to display alert message if phone number condition is met
-        }
         
         function isFormFilled() {
             // Check if any required field is empty
