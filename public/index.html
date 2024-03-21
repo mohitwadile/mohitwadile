@@ -55,15 +55,15 @@
     // get ref to database services 
     const db = getdatabase(app);
   
-    document.getElementById("submit").addEventListener('click', function(e)
+    document.getElementById("submit").addEventListener('click', function(e){
+    e.preventdefault();
       {set(ref(db, 'user/' + document.getElementById("username").value),
-      username,  document.getElementById("username").value);
+    username , document.getElementById("username").value);
       email: document.getElementById("email").value;
-      PhoneNumber: document.getElementById("phone").value;}) 
+      PhoneNumber: document.getElementById("phone").value;
 </script>
 
 <script src="script.js"></script>
-
-  
+      
 </body>
 </html>
